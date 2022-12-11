@@ -1,8 +1,4 @@
-﻿using Javax.Net.Ssl;
-using System.ComponentModel;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Text.Json;
+﻿using System.ComponentModel;
 
 namespace Hangman;
 
@@ -130,6 +126,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
         //    answer = words[new Random().Next(0, words.Count)].ToUpper();
         //}
         answer = words[new Random().Next(0, words.Count)].ToUpper();
+
     }
 
     private void CalculateWord(string answer, List<char> guessedLetters)
