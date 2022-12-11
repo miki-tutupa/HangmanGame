@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman.MainPage"
+             Shell.NavBarIsVisible="false">
+
+    <Grid RowDefinitions=".6*,.4*">
+        <VerticalStackLayout Spacing="10">
+
+            <ImageButton
+                Clicked="Reset_Clicked"
+                HeightRequest="15"
+                WidthRequest="15"
+                HorizontalOptions="End"
+                Margin="10"
+                Source="reload.svg"/>
+            <!--<Label
+                FontFamily="Handwrite"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Text="{Binding GameStatus}"/>-->
+            <Image Source="{Binding CurrentImage}" HeightRequest="250" Margin="0,-30,0,30"/>
+            <Label
+                FontSize="40"
+                HorizontalOptions="Center"
+                Text="{Binding SpotLight}"
+                VerticalOptions="Center"
+                FontFamily="Handwrite"/>
+            <Label
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Message}"
+                VerticalOptions="Center"/>
+        </VerticalStackLayout>
+        <FlexLayout Grid.Row="1"
+                    x:Name="LettersContainer"
+                    Wrap="Wrap"
+                    JustifyContent="SpaceEvenly"
+                    BindableLayout.ItemsSource="{Binding Letters}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button 
+                        HeightRequest="50" 
+                        WidthRequest="50"
+                        Text="{Binding .}"
+                        Clicked="Button_Clicked"
+                        FontFamily="Handwrite"
+                        FontSize="27"
+                        CornerRadius="20"
+                        FontAttributes="Bold"/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </Grid>
+</ContentPage>
